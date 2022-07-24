@@ -800,15 +800,11 @@ justify-content: center;
   top: 0;
   left: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(1.25);
+  
   
 }
 
@@ -820,14 +816,26 @@ justify-content: center;
 }
 
 .modal {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+
   width: 528px;
   height: 581px; 
   background-color: #FFFFFF;
   border-radius: 4px;
-  
+  opacity: 1;
+  transition: transform 400ms ease-in-out 300ms, opacity 400ms ease-in-out 300ms;
+  }
+
+  .backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.3) rotate(1turn);
+    opacity: 0;
 
   }
+
+
 
   .modal-btn {
     position: absolute;
